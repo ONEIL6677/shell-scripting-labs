@@ -1,0 +1,1 @@
+A growing collection of shell scripting labs and practice exercises written in Bash. Each lab focuses on a specific concept from variables, loops, and functions to file processing, cron jobs, and system automation making this repository a useful reference for both beginners sharpening their skills and engineers revisiting scripting fundamentals.

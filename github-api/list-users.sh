@@ -33,8 +33,11 @@ API_URL="https://api.github.com"
 USERNAME=$username #here the username will be exported from terminal or environment
 TOKEN=$token  #here the github API access token will be exported from terminal or environment
 
+#####################################################################################
 # User and Repository information to be pers to the command before running the script
 # eg sh list-user.sh organisatioName RepositoryName
+######################################################################################
+
 REPO_OWNER=$1 #command line argurmnet 1 which is organisatioName
 REPO_NAME=$2 #command line argurmnet 2 which is RepositoryName
 
@@ -50,15 +53,19 @@ function github_api_get {
 # Function to list users with read access to the repository
 function list_users_with_read_access {
     local endpoint="repos/${REPO_OWNER}/${REPO_NAME}/collaborators"
-
+     
+    ##############################################################
     # Fetch the list of collaborators on the repository
     # with jq command which helps to filter pout complex json file 
     # and print out only usernames of users who have access
+    #################################################################
+
     collaborators="$(github_api_get "$endpoint" | jq -r '.[] | select(.permissions.pull == true) | .login')"
 
+    ##################################################################################
     # NB if you want to get all the admins of this repo change the jq command above to 
     # jq -r '.[] | select(.permissions.admin == true) | .login')"
-
+    ###################################################################################
 
     # Display the list of collaborators with read access
     if [[ -z "$collaborators" ]]; then #if list of colaborators is empty print

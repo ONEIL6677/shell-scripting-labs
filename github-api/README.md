@@ -1,4 +1,4 @@
-# 🔐 GitHub Repository Access Checker
+# GitHub Repository Access Checker
 
 A Bash script that lists all collaborators with **read (pull) access** to a specified GitHub repository using the GitHub REST API.
 
